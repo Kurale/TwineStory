@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Координаты курсора</title>
+  <style>
+    /* Стили для отображения координат */
+    #coordinates {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      border-radius: 5px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Элемент для отображения координат -->
+  <div id="coordinates">X: 0, Y: 0</div>
+
+  <script>
+    // Находим элемент для отображения координат
+    const coordsElement = document.getElementById('coordinates');
+
+    // Обработчик события для отслеживания движения мыши
+    document.addEventListener('mousemove', function(event) {
+      // Получаем координаты курсора относительно окна
+      const x = event.clientX;
+      const y = event.clientY;
+
+      // Обновляем содержимое элемента
+      coordsElement.textContent = `X: ${x}, Y: ${y}`;
+    });
+  </script>
+
+</body>
+</html>
